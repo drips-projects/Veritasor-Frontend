@@ -1,17 +1,18 @@
-export default function Attestations() {
+import AttestationProgress from '../components/AttestationProgress'
+
+type AttestationsProps = {
+  stepDurationMs?: number
+}
+
+export default function Attestations({ stepDurationMs }: AttestationsProps) {
   return (
-    <div className="page">
-      <header className="page-header">
-        <h1 className="page-title">Attestations</h1>
-        <p className="page-description">
-          Revenue attestations published on Stellar. Merkle roots and metadata are stored on-chain.
-        </p>
-      </header>
-      <section className="page-card">
-        <p className="empty-state">
-          No attestations yet. Run a revenue report from the dashboard to create one.
-        </p>
-      </section>
+    <div>
+      <h1 style={{ marginTop: 0 }}>Attestations</h1>
+      <p style={{ color: 'var(--muted)' }}>
+        Revenue attestations published on Stellar. Merkle roots and metadata are stored on-chain.
+      </p>
+
+      <AttestationProgress stepDurationMs={stepDurationMs} />
     </div>
   )
 }
