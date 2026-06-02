@@ -1,12 +1,11 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import AuthShell from '../components/AuthShell';
+import { Link } from "react-router-dom";
+import AuthShell from "../components/AuthShell";
 
 const highlights = [
-  'Enterprise-grade verification for revenue attestations',
-  'Keyboard-first forms with visible focus and inline guidance',
-  'Reusable error, loading, and disabled states across every auth entry point',
-]
+  "Enterprise-grade verification for revenue attestations",
+  "Keyboard-first forms with visible focus and inline guidance",
+  "Reusable error, loading, and disabled states across every auth entry point",
+];
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -47,24 +46,23 @@ export default function Login() {
               Forgot password?
             </Link>
           </div>
-          <div className="auth-input-toggle-group">
-            <input
-              id="login-password"
-              className="auth-input auth-input-error"
-              type={showPassword ? "text" : "password"}
-              placeholder="Enter your password"
-              autoComplete="current-password"
-              aria-describedby="login-password-error"
-              defaultValue="badpass"
-            />
-            <button
-              type="button"
-              className="auth-toggle-btn"
-              aria-label={showPassword ? "Hide password" : "Show password"}
-              onClick={() => setShowPassword(!showPassword)}
-            >{showPassword ? "Hide" : "Show"}</button>
-          </div>
-          <p id="login-password-error" className="auth-message auth-message-error" role="alert">
+          <input
+            id="login-password"
+            className="auth-input auth-input-error"
+            type="password"
+            placeholder="Enter your password"
+            autoComplete="current-password"
+            aria-describedby="login-password-error"
+            defaultValue="badpass"
+          />
+          <p
+            id="login-password-error"
+            className="auth-message auth-message-error"
+            role="alert"
+          >
+            <span aria-hidden="true" className="auth-message-icon">
+              !
+            </span>
             Your password must include at least 12 characters and one symbol.
           </p>
         </div>
@@ -81,11 +79,15 @@ export default function Login() {
           <button type="button" className="auth-button auth-button-secondary">
             Continue with Google
           </button>
-          <button type="button" className="auth-button auth-button-ghost" disabled>
+          <button
+            type="button"
+            className="auth-button auth-button-ghost"
+            disabled
+          >
             SSO loading...
           </button>
         </div>
       </form>
     </AuthShell>
-  )
+  );
 }

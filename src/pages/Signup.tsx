@@ -1,11 +1,10 @@
-import { useState } from 'react';
-
+import AuthShell from "../components/AuthShell";
 
 const highlights = [
-  'Clear field grouping keeps legal, team, and security details easy to scan',
-  'Password requirements are visible before submission to reduce recovery loops',
-  'Responsive spacing keeps the full flow usable without horizontal scrolling',
-]
+  "Clear field grouping keeps legal, team, and security details easy to scan",
+  "Password requirements are visible before submission to reduce recovery loops",
+  "Responsive spacing keeps the full flow usable without horizontal scrolling",
+];
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -68,23 +67,18 @@ export default function Signup() {
           <label className="auth-label" htmlFor="signup-password">
             Password
           </label>
-          <div className="auth-input-toggle-group">
-            <input
-              id="signup-password"
-              className="auth-input"
-              type={showPassword ? "text" : "password"}
-              placeholder="Create a strong password"
-              autoComplete="new-password"
-              aria-describedby="signup-password-help"
-            />
-            <button
-              type="button"
-              className="auth-toggle-btn"
-              aria-label={showPassword ? "Hide password" : "Show password"}
-              onClick={() => setShowPassword(!showPassword)}
-            >{showPassword ? "Hide" : "Show"}</button>
-          </div>
-          <p id="signup-password-help" className="auth-message">
+          <input
+            id="signup-password"
+            className="auth-input"
+            type="password"
+            placeholder="Create a strong password"
+            autoComplete="new-password"
+            aria-describedby="signup-password-help"
+          />
+          <p
+            id="signup-password-help"
+            className="auth-message auth-message-help"
+          >
             Use 12+ characters with uppercase, lowercase, number, and symbol.
           </p>
         </div>
@@ -94,12 +88,17 @@ export default function Signup() {
           <span className="auth-strength-bar auth-strength-bar-active" />
           <span className="auth-strength-bar auth-strength-bar-active" />
           <span className="auth-strength-bar" />
-          <p className="auth-strength-copy">Strong enough for a production workspace</p>
+          <p className="auth-strength-copy">
+            Strong enough for a production workspace
+          </p>
         </div>
 
         <label className="auth-checkbox">
           <input type="checkbox" />
-          <span>I agree to the terms, privacy policy, and audit logging requirements.</span>
+          <span>
+            I agree to the terms, privacy policy, and audit logging
+            requirements.
+          </span>
         </label>
 
         <div className="auth-actions">
@@ -112,5 +111,5 @@ export default function Signup() {
         </div>
       </form>
     </AuthShell>
-  )
+  );
 }
